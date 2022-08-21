@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/appstyle.css">
+    <script src="./js/controller.js" type="module" defer></script>
+    <title>Fit Your Calories</title>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <div class="main__app-container">
+        <div class="user__info-container">
+            <div class="image__container">
+                <img class="user__img" src="../assets/img/profile-img2.jpg" alt="Profile image">
+                <div class="update__image-btn">
+                    <i class="fas fa-camera-retro"></i>
+                </div>
+            </div>
+            <div class="personal__info-container">
+                <h2>Personal information</h2>
+                <div class="input__container name__container">
+                    <input type="text" placeholder="User name" id="user__name">
+                    <label for="user__name">Name</label>
+                </div>
+                <div class="input__container age__container">
+                    <label for="user__age">Age</label>
+                    <input type="number" placeholder="20" id="user__age">
+                </div>
+                <div class="input__container height__container">
+                    <label for="user__height">Height</label>
+                    <input type="number" placeholder="180" id="user__height">
+                </div>
+                <div class="input__container weight__container">
+                    <label for="current__weight">Current weight</label>
+                    <input type="number" placeholder="80" id="current__weight">
+                </div>
+            </div>
+            <div class="objectives__info-container">
+                <h2>Target information</h2>
+                <div class="input__container diet__container">
+                    <label for="diet__type">Diet</label>
+                    <select name="diet__type" id="diet__type">
+                        <option value="classic" selected>Classic</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="paleo">Paleo</option>
+                        <option value="keto">Keto</option>
+                    </select>
+                </div>
+                <div class="input__container target-weight__container">
+                    <label for="target__weight">Target weight</label>
+                    <input type="number" placeholder="85" id="target__weight">
+                </div>
+                <div class="input__container calories__container">
+                    <label for="target__calories">Target calories</label>
+                    <input type="number" placeholder="2500" id="target__calories" disabled>
+                </div>
+
+                <div class="input__container calories__recommendation">
+                    
+                    <input type="checkbox" id="calorie__recommendation" checked>
+                    <label for="calorie__recommendation">Recommend calories</label>
+                </div>
+            </div>
+            <button class="save__info-btn">Save 💪</button>
+        </div>
+
+        <header class="main__header">
+            <div class="menu__button-container"></div>
+            <div class="main__logo-container">
+                <h2 class="main__logo">Dietin</h2>
+            </div>
+        </header>
+
+        <div class="main__body">
+            <div class="home__container">
+                <div class="calorie__sumary-container">
+                    <div class="calories__chart">
+        
+                        <!-- SVG Chart start -->
+        
+                        <svg class="main__chart" width="348.74" height="348.74" viewBox="0 0 348.74 348.74">
+                            <defs>
+                                <linearGradient id="Naranja_amarillo" x1="297.64" y1="354.37" x2="297.64" y2="354.37"
+                                    gradientUnits="userSpaceOnUse">
+                                    <stop offset="0" stop-color="#ffef26" />
+                                    <stop offset="0.02" stop-color="#ffea21" />
+                                    <stop offset="0.1" stop-color="#fed70f" />
+                                    <stop offset="0.19" stop-color="#fdcc04" />
+                                    <stop offset="0.28" stop-color="#fdc800" />
+                                    <stop offset="0.67" stop-color="#f18f34" />
+                                    <stop offset="0.89" stop-color="#e95f32" />
+                                    <stop offset="1" stop-color="#e3312d" />
+                                </linearGradient>
+                                <linearGradient id="Naranja_amarillo-2" x1="124.63" y1="200" x2="473.37" y2="200"
+                                    xlink:href="#Naranja_amarillo" />
+                            </defs>
+                            <g id="Capa_1" data-name="Capa 1">
+                                <path d="M297.64,354.37" transform="translate(-124.63 -25.63)"
+                                    style="fill:none;stroke-miterlimit:10;stroke-width:31px;stroke:url(#Naranja_amarillo)" />
+                                <path d="M299,354.37a154.26,154.26,0,1,1,141.05-91.55" transform="translate(-124.63 -25.63)"
+                                    style="fill:none;stroke:#e9f2f8;stroke-linecap:round;stroke-miterlimit:10;stroke-width:35px" />
+                            </g>
+                            <g id="Capa_2" data-name="Capa 2">
+                                <path id="path" d="M299,354.37a154.26,154.26,0,1,1,141.05-91.55"
+                                    transform="translate(-124.63 -25.63)"
+                                    style="fill:none;stroke-linecap:round;stroke-miterlimit:10;stroke-width:35px;stroke:url(#Naranja_amarillo-2)" />
+                            </g>
+                        </svg>
+        
+                        <!-- SVG Chart end -->
+        
+                        <div class="calories__chart-text">
+                            <div class="main__text-container">
+                                <p class="emoji">🥶</p>
+                                <h2><span class="main__number">0</span>Kcal</h2>
+                            </div>
+                            <h3>/2617</h3>
+                        </div>
+        
+                    </div>
+                    <div class="macros__container">
+                        <div class="macro__item macro__calories">
+        
+                            <svg width="43.33" height="6" viewBox="0 0 43.33 6">
+                                <g id="Capa_2" data-name="Capa 2">
+                                    <line x1="3" y1="3" x2="40.33" y2="3"
+                                        style="fill:none;stroke:#e9f2f8;stroke-linecap:round;stroke-miterlimit:10;stroke-width:4px" />
+                                </g>
+                                <g id="Capa_1" data-name="Capa 1">
+                                    <line id="line" x1="3" y1="3" x2="40.33" y2="3"
+                                        style="fill:none;stroke:#F19CE3;stroke-linecap:round;stroke-miterlimit:10;stroke-width:4px" />
+                                </g>
+                            </svg>
+        
+                            <div class="macro__item-text">
+                                <i class="fas fa-bolt"></i>
+                                <p>Calories</p>
+                            </div>
+        
+        
+                        </div>
+        
+                        <div class="macro__item macro__carbs">
+        
+                            <svg width="43.33" height="6" viewBox="0 0 43.33 6">
+                                <g id="Capa_2" data-name="Capa 2">
+                                    <line x1="3" y1="3" x2="40.33" y2="3"
+                                        style="fill:none;stroke:#e9f2f8;stroke-linecap:round;stroke-miterlimit:10;stroke-width:4px" />
+                                </g>
+                                <g id="Capa_1" data-name="Capa 1">
+                                    <line id="line" x1="3" y1="3" x2="40.33" y2="3"
+                                        style="fill:none;stroke:#FFC771;stroke-linecap:round;stroke-miterlimit:10;stroke-width:4px" />
+                                </g>
+                            </svg>
+        
+                            <div class="macro__item-text">
+                                <i class="fas fa-bread-slice"></i>
+                                <p>Carbs</p>
+                            </div>
+        
+                        </div>
+                        <div class="macro__item macro__fat">
+        
+                            <svg width="43.33" height="6" viewBox="0 0 43.33 6">
+                                <g id="Capa_2" data-name="Capa 2">
+                                    <line x1="3" y1="3" x2="40.33" y2="3"
+                                        style="fill:none;stroke:#e9f2f8;stroke-linecap:round;stroke-miterlimit:10;stroke-width:4px" />
+                                </g>
+                                <g id="Capa_1" data-name="Capa 1">
+                                    <line id="line" x1="3" y1="3" x2="40.33" y2="3"
+                                        style="fill:none;stroke:#F07070;stroke-linecap:round;stroke-miterlimit:10;stroke-width:4px" />
+                                </g>
+                            </svg>
+        
+                            <div class="macro__item-text">
+                                <i class="fas fa-pizza-slice"></i>
+                                <p>Fats</p>
+                            </div>
+        
+                        </div>
+                        <div class="macro__item macro__protein">
+        
+                            <svg width="43.33" height="6" viewBox="0 0 43.33 6">
+                                <g id="Capa_2" data-name="Capa 2">
+                                    <line x1="3" y1="3" x2="40.33" y2="3"
+                                        style="fill:none;stroke:#e9f2f8;stroke-linecap:round;stroke-miterlimit:10;stroke-width:4px" />
+                                </g>
+                                <g id="Capa_1" data-name="Capa 1">
+                                    <line id="line" x1="3" y1="3" x2="40.33" y2="3"
+                                        style="fill:none;stroke:#84E1FF;stroke-linecap:round;stroke-miterlimit:10;stroke-width:4px" />
+                                </g>
+                            </svg>
+        
+                            <div class="macro__item-text">
+                                <i class="fas fa-drumstick-bite"></i>
+                                <p>Protein</p>
+                            </div>
+        
+                        </div>
+                    </div>
+                </div>
+                <div class="main__content-container">
+                    <header class="main__content-header">
+                        <h3 class="today__menu menu__active">Today</h3>
+                        <h3 class="progress__menu">Progress</h3>
+                        <div class="active__indicator"></div>
+                    </header>
+                    <div class="main__content-body">
+                        
+                        <div class="main__content-meals">
+                            <div class="placeholder-img__container active"><img src="../assets/img/placeholder-img-empty.png" alt=""></div>
+                        </div>
+                        <div class="main__content-progress">
+                            <div class="placeholder-img__container active"><img src="../assets/img/placeholder-img-404.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="meals__menu-container">
+                <div class="main__meals-screen">
+                    <h2 class="meals__title">Find your favorite food</h2>
+                    <p class="meals__subtitle">Are you looking for some recommendations? Here you have it!</p>
+                    <button class="meals__rec-btn">Discover some food <span>🎉</span></button>
+                    <div class="meals__container">
+                        <div class="breakfast__item-container meal" data-meal="breakfast">
+                            <div class="meal__text-container">
+                                <h2 class="meal__title">Breakfast</h2>
+                                <p class="meal__description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, tempora.</p>
+                            </div>
+                            <div class="meal__img-container">
+                                <img src="../assets/img/breakfast-img.png" alt="">
+                                
+                            </div>
+                        </div>
+                        <div class="lunch__item-container meal" data-meal="lunch">
+                            <div class="meal__text-container">
+                                <h2 class="meal__title">Lunch</h2>
+                                <p class="meal__description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, tempora.</p>
+                            </div>
+                            <div class="meal__img-container">
+                                <img src="../assets/img/lunch-img.png" alt="">
+                            </div>
+                        </div>
+                        <div class="snacks__item-container meal" data-meal="snacks">
+                            <div class="meal__text-container">
+                                <h2 class="meal__title">Snacks</h2>
+                                <p class="meal__description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, tempora.</p>
+                            </div>
+                            <div class="meal__img-container">
+                                <img src="../assets/img/snacks-img.png" alt="">
+                            </div>
+                        </div>
+                        <div class="dinner__item-container meal" data-meal="dinner">
+                            <div class="meal__text-container">
+                                <h2 class="meal__title">Dinner</h2>
+                                <p class="meal__description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Qui, tempora.</p>
+                            </div>
+                            <div class="meal__img-container">
+                                <img src="../assets/img/dinner-img.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BREAKFAST -->
+                <div class="breakfast__screen meal__screen">
+                    <div class="close__screen-btn">
+                        <div class="grip__icon-container">
+                            <div class="row">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                            <div class="row">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image__container">
+                        <h2 class="meal__screen-title">Breakfast</h2>
+                    </div>
+                    
+                    <div class="screen__macros-container">
+                        <div class="item item-calories">
+                            <h4>0 kcal</h4>
+                            <p>Calorias</p>
+                        </div>
+                        <div class="item item-carbs">
+                            <h4>0 g</h4>
+                            <p>Carbs</p>
+                        </div>
+                        <div class="item item-protein">
+                            <h4>0 g</h4>
+                            <p>Proteins</p>
+                        </div>
+                        <div class="item item-fat">
+                            <h4>0 g</h4>
+                            <p>Fats</p>
+                        </div>
+                    </div>
+                    <div class="food__saved-container">
+                        <div class="placeholder-img__container active"><img src="../assets/img/placeholder-img-empty.png" alt=""></div>
+                    </div>
+                    <button class="add__food-btn"><i class="fas fa-plus"></i></button>
+                    <div class="add__food-screen">
+                        <form class="searchbar__container" autocomplete="off">
+                            <input type="text" placeholder="Search..." class="searchbar" id="searchbar__breakfast">
+                            <label for="searchbar__breakfast"><i class="fas fa-search"></i></label>
+                        </form>
+                        <div class="recommendations__container">
+                        </div>
+                        <div class="add__food-results">
+                        </div>
+                        <div class="loader">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- LUNCH -->
+                <div class="lunch__screen meal__screen">
+                    <div class="close__screen-btn">
+                        <div class="grip__icon-container">
+                            <div class="row">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                            <div class="row">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image__container">
+                        <h2 class="meal__screen-title">Lunch</h2>
+                    </div>
+                    
+                    <div class="screen__macros-container">
+                        <div class="item item-calories">
+                            <h4>0 kcal</h4>
+                            <p>Calorias</p>
+                        </div>
+                        <div class="item item-carbs">
+                            <h4>0 g</h4>
+                            <p>Carbs</p>
+                        </div>
+                        <div class="item item-protein">
+                            <h4>0 g</h4>
+                            <p>Proteins</p>
+                        </div>
+                        <div class="item item-fat">
+                            <h4>0 g</h4>
+                            <p>Fats</p>
+                        </div>
+                    </div>
+                    <div class="food__saved-container">
+                        <div class="placeholder-img__container active"><img src="../assets/img/placeholder-img-empty.png" alt=""></div>
+                    </div>
+                    <button class="add__food-btn"><i class="fas fa-plus"></i></button>
+                    <div class="add__food-screen">
+                        <form class="searchbar__container" autocomplete="off">
+                            <input type="text" placeholder="Search..." class="searchbar" id="searchbar__lunch">
+                            <label for="searchbar__breakfast"><i class="fas fa-search"></i></label>
+                        </form>
+                        <div class="recommendations__container">
+                        </div>
+                        <div class="add__food-results">
+                        </div>
+                        <div class="loader">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- SNACKS -->
+                <div class="snacks__screen meal__screen">
+                    <div class="close__screen-btn">
+                        <div class="grip__icon-container">
+                            <div class="row">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                            <div class="row">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image__container">
+                        <h2 class="meal__screen-title">Snacks</h2>
+                    </div>
+                    
+                    <div class="screen__macros-container">
+                        <div class="item item-calories">
+                            <h4>0 kcal</h4>
+                            <p>Calorias</p>
+                        </div>
+                        <div class="item item-carbs">
+                            <h4>0 g</h4>
+                            <p>Carbs</p>
+                        </div>
+                        <div class="item item-protein">
+                            <h4>0 g</h4>
+                            <p>Proteins</p>
+                        </div>
+                        <div class="item item-fat">
+                            <h4>0 g</h4>
+                            <p>Fats</p>
+                        </div>
+                    </div>
+                    <div class="food__saved-container">
+                        <div class="placeholder-img__container active"><img src="../assets/img/placeholder-img-empty.png" alt=""></div>
+                    </div>
+                    <button class="add__food-btn"><i class="fas fa-plus"></i></button>
+                    <div class="add__food-screen">
+                        <form class="searchbar__container" autocomplete="off">
+                            <input type="text" placeholder="Search..." class="searchbar" id="searchbar__snacks">
+                            <label for="searchbar__breakfast"><i class="fas fa-search"></i></label>
+                        </form>
+                        <div class="recommendations__container">
+                        </div>
+                        <div class="add__food-results">
+                        </div>
+                        <div class="loader">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- DINNER -->
+                <div class="dinner__screen meal__screen">
+                    <div class="close__screen-btn">
+                        <div class="grip__icon-container">
+                            <div class="row">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                            <div class="row">
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image__container">
+                        <h2 class="meal__screen-title">Dinner</h2>
+                    </div>
+                    
+                    <div class="screen__macros-container">
+                        <div class="item item-calories">
+                            <h4>0 kcal</h4>
+                            <p>Calorias</p>
+                        </div>
+                        <div class="item item-carbs">
+                            <h4>0 g</h4>
+                            <p>Carbs</p>
+                        </div>
+                        <div class="item item-protein">
+                            <h4>0 g</h4>
+                            <p>Proteins</p>
+                        </div>
+                        <div class="item item-fat">
+                            <h4>0 g</h4>
+                            <p>Fats</p>
+                        </div>
+                    </div>
+                    <div class="food__saved-container">
+                        <div class="placeholder-img__container active"><img src="../assets/img/placeholder-img-empty.png" alt=""></div>
+                    </div>
+                    <button class="add__food-btn"><i class="fas fa-plus"></i></button>
+                    <div class="add__food-screen">
+                        <form class="searchbar__container" autocomplete="off">
+                            <input type="text" placeholder="Search..." class="searchbar" id="searchbar__dinner">
+                            <label for="searchbar__breakfast"><i class="fas fa-search"></i></label>
+                        </form>
+                        <div class="recommendations__container">
+                        </div>
+                        <div class="add__food-results">
+                        </div>
+                        <div class="loader">Loading...</div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="goals__container">
+              <div class="placeholder-img__container active"><img src="../assets/img/placeholder-img-404.png" alt=""></div>
+            </div>
+            <div class="tips__container">
+              <div class="placeholder-img__container active"><img src="../assets/img/placeholder-img-404.png" alt=""></div>
+            </div>
+        </div>
+
+        <footer class="main__app-footer">
+            <div class="footer__button home__button footer__button-active">
+                <i class="fas fa-home">
+                    <i class="fas fa-home effect"></i>
+                </i>
+                <h3 class="home__buton-text">Home</h3>
+            </div>
+            <div class="footer__button meals__button">
+                <i class="fas fa-utensils">
+                    <i class="fas fa-utensils effect"></i>
+                </i>
+                <h3 class="meals__buton-text">Meals</h3>
+            </div>
+            <div class="footer__button goals__button">
+                <i class="fas fa-bullseye">
+                    <i class="fas fa-bullseye effect"></i>
+                </i>
+                <h3 class="goals__buton-text">Goals</h3>
+            </div>
+            <div class="footer__button tips__button">
+                <i class="fas fa-receipt">
+                    <i class="fas fa-receipt effect"></i>
+                </i>
+                <h3 class="info__buton-text">Info</h3>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
