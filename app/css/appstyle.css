@@ -54,7 +54,7 @@ body{
   position: fixed;
   z-index: 9999;
   inset: 0;
-  animation: appear-overlay 1s forwards;
+  animation: appear-overlay 1s forwards 1s;
 }
 
 @keyframes appear-overlay{
